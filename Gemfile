@@ -8,6 +8,7 @@ gem "haml"
 gem "high_voltage"
 gem "simple_form"
 gem "rails_config"
+gem "bootstrap-sass"
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
