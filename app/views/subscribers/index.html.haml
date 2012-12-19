@@ -1,5 +1,4 @@
-%h1#title= Settings.party_name
-
 = link_to image_tag(Settings.flyer_url), Settings.facebook_event, id: 'flyer'
 
+%h1 Guest List
 = render 'subscribers/form', object: @subscriber
