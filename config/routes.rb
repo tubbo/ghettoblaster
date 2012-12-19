@@ -1,4 +1,9 @@
 Wunderkind::Application.routes.draw do
+  resources :subscribers
+
+
+  get "subscribers/index"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
