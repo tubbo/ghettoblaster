@@ -23,8 +23,8 @@ feature "A subscriber to the list", js: true do
   end
 
   it "will not submit without an email" do
-    fill_in :subscriber_name,  with: ""
-    fill_in :subscriber_email, with: "lester@test.com"
+    fill_in :subscriber_name,  with: "Lester Tester"
+    fill_in :subscriber_email, with: ""
     click_button "Add me to the guest list!"
 
     page.should_not have_content '#thanks'
