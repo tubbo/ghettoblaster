@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Wunderkind::Application.load_tasks
+Ghettoblaster::Application.load_tasks
