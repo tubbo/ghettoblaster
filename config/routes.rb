@@ -1,5 +1,5 @@
 Wunderkind::Application.routes.draw do
   resources :subscribers, only: [:index, :create]
-  get '/thanks' => 'pages#thanks'
+  get '/:id' => 'high_voltage/pages#show' # all static pages
   root to: 'subscribers#index'
 end

@@ -13,7 +13,7 @@ class SubscribersController < ApplicationController
     @subscriber = Subscriber.new params[:subscriber]
 
     if @subscriber.save
-      redirect_to '/subscribed'
+      redirect_to '/thanks'
     else
       render 'error', \
         alert: "Error: #{@subscriber.errors.full_messages.join(', ')}",

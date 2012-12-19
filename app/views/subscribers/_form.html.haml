@@ -1,3 +1,4 @@
 = simple_form_for @subscriber do |form|
-  = form.inputs :name, :email
-  = form.buttons
+  = form.input :name
+  = form.input :email
+  = form.button :submit, value: "Add me to the guest list!"
