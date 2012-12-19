@@ -1,6 +1,7 @@
 class Subscriber < ActiveRecord::Base
   attr_accessible :email, :name
   validates_presence_of :email, :name
+  validates_uniqueness_of :email
   validate :email_can_be_sent
 
 private
