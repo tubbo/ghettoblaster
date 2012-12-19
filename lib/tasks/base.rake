@@ -1,8 +1,8 @@
-    require 'rspec/core/rake_task'
-    RSpec::Core::RakeTask.new :spec
+begin
+  require 'rspec/core/rake_task'
 
-    task :test => ['db:test:prepare', 'spec']
-
-    task :server do
-      sh "rails server puma"
-    end
+  RSpec::Core::RakeTask.new :spec
+  task :test => ['db:test:prepare', 'spec']
+rescue
+  puts "Run in development to load RSpec"
+end
