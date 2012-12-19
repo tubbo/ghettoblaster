@@ -8,11 +8,11 @@ is in use to manage the Wonder Bars' email list.
 
 Clone the git repo
 
-  $ git clone git://github.com/tubbo/ghettoblaster.git
+    $ git clone git://github.com/tubbo/ghettoblaster.git
 
 Install the gems
 
-  $ cd ghettoblaster && bundle install
+    $ cd ghettoblaster && bundle install
 
 Then, deploy it just like any other Rails app. Uses Postgres by default.
 
@@ -22,12 +22,12 @@ Here's how to deploy on Heroku. It works.
 
 Create the app and push the code up
 
-  $ heroku create my-ghettoblaster
-  $ git push heroku master
+    $ heroku create my-ghettoblaster
+    $ git push heroku master
 
 Set up the database
 
-  $ heroku run rake db:migrate
+    $ heroku run rake db:migrate
 
 Now, you can browse to <http://my-ghettoblaster.herokuapp.com/admin> and log in with
 username **admin@example.com** and password **password**. You should probably change this.
