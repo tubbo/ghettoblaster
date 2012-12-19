@@ -15,7 +15,7 @@ class SubscribersController < ApplicationController
     if @subscriber.save
       redirect_to '/thanks'
     else
-      render 'error', \
+      render 'index', \
         alert: "Error: #{@subscriber.errors.full_messages.join(', ')}",
         status: 422
     end
