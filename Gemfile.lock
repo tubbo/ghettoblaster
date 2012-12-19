@@ -138,8 +138,6 @@ GEM
       activesupport (= 3.2.9)
       bundler (~> 1.0)
       railties (= 3.2.9)
-    rails_config (0.3.1)
-      activesupport (>= 3.0)
     railties (3.2.9)
       actionpack (= 3.2.9)
       activesupport (= 3.2.9)
@@ -221,7 +219,6 @@ DEPENDENCIES
   json
   pg
   rails (= 3.2.9)
-  rails_config
   rspec-rails
   ruby_parser
   sass-rails (~> 3.2.3)
