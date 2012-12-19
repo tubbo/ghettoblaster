@@ -1,4 +1,4 @@
-= link_to image_tag(Settings.flyer_url), Settings.facebook_event, id: 'flyer'
+= link_to image_tag(Setting.for(:flyer_url)), Setting.for(:facebook_event), id: 'flyer'
 
 %h1 Guest List
 = render 'subscribers/form', object: @subscriber

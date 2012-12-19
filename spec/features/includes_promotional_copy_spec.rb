@@ -6,6 +6,6 @@ feature "Home page includes promotional copy" do
 
   it "include the image from settings" do
     page.should have_css '#flyer'
-    find(:css, '#flyer > img')[:src].should == Settings.flyer_url
+    find(:css, '#flyer > img')[:src].should == Setting.for(:flyer_url)
   end
 end
