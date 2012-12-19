@@ -20,7 +20,6 @@ group :development do
   gem "haml-rails"
   gem "ruby_parser"
   gem "hpricot"
-  gem "heroku"
 end
 
 group :test do
