@@ -1,0 +1,9 @@
+party_name:
+  key: "party_name"
+  value: "Come Correct"
+flyer_url:
+  key: "flyer_url"
+  value: "http://sphotos-a.xx.fbcdn.net/hphotos-ash4/253030_4148756291018_888519690_n.jpg"
+facebook_event:
+  key: "facebook_event"
+  value: "https://www.facebook.com/events/377400385685894/"
