@@ -36,3 +36,15 @@ Edit the settings in the "Settings" tab, the `flyer_url` is the image shown on t
 while the `party_name` is the title used practically everywhere else. If you have a Facebook event,
 plug it in the `facebook_event` setting, or else you can make this a link to tickets or anything
 else.
+
+## Work In Progress
+
+Note that this is a WIP and isn't fully developed.
+
+## Roadmap
+
+- Add other copy text options to the front page.
+- Create "Blasts", which are messages to be sent out to the entire list of Subscribers when
+  saved.
+- Compose Blasts in Markdown. Convert Markdown to HTML before sending out.
+- Use Mailcatcher in development when writing emails.
