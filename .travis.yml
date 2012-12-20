@@ -7,7 +7,7 @@ before_script:
   - "createuser -s ghettoblaster && rake db:setup"
 env:
   global:
-    - secure: "M6TMF9HKeL8Gcjd0JYz9T6p25ve6/uirkd5mhJwPyRXnZS+ng1xV5IZ6GGY5\n6hQBbRoSfIgimcn+foP4kqQrKpmh6eR/E/I1Cbl7QMlWmDKVlLC/0en846+2\n/VHVPh5C3SON+OibFiXZl+VyTooGj9BIuy7uwaVATtFkA2fRHRw="
+    - secure: "YFAz6JkWHLGt1Xd9TrSzkMLCxKljn2MN/gFVFh+EIF8PHNuFtSiufcJQWDWp\nyZKpqaDnwvLNTA7v0suzmxdn/n7625nakda28l2YnIjTh2bjyhHtW8ftfUYa\nqi2M9UFvguOXbF3XTf79SZPnBDt8kXrULimPeg6jI5arBJ8fYuk="
 after_success:
   # Install the Heroku gem (or the Heroku toolbelt)
   - "gem install heroku"
