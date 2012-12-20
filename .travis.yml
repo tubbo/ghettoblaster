@@ -1,2 +1,4 @@
 language: ruby
 bundler_args: --without=development
+before_script:
+  - "createuser -s ghettoblaster && rake db:setup"
