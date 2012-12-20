@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Blast do
-  subject { Blast.new(subject: "Announcement", body: "Lorem Ipsum") }
+  subject { Blast.new(subject: "Announcement", body: "test") }
 
   it "sends an email out when saved" do
     subject.is_published = true
