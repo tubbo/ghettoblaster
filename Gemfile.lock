@@ -149,6 +149,7 @@ GEM
     rake (10.0.3)
     rdoc (3.12)
       json (~> 1.4)
+    redcarpet (2.2.2)
     responders (0.9.3)
       railties (~> 3.1)
     rspec-core (2.12.2)
@@ -219,6 +220,7 @@ DEPENDENCIES
   json
   pg
   rails (= 3.2.9)
+  redcarpet
   rspec-rails
   ruby_parser
   sass-rails (~> 3.2.3)

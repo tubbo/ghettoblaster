@@ -9,6 +9,7 @@ gem "high_voltage"
 gem "simple_form"
 gem "bootstrap-sass"
 gem "activeadmin"
+gem "redcarpet"
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
