@@ -5,19 +5,19 @@ describe SubscribersController do
     it "renders the new subscriber form" do
       get :index
 
-      response.should be_success
+      response.status.should == 200
     end
   end
 
   context "POST 'create'" do
     it "creates a new subscriber record with the right attrs" do
-      post :create, subscriber: { name: "Test", email: 'test@example.com' }
+      post :create, subscriber: { name: "Test", email: 'test@example.net' }
 
-      response.should be_redirect
+      response.status.should == 302
     end
 
     it "fails with a blank name" do
-      post :create, subscriber: { name: "", email: 'test@example.com' }
+      post :create, subscriber: { name: "", email: 'test@example.org' }
 
       response.status.should == 422
     end
