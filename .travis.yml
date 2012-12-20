@@ -5,3 +5,22 @@ before_install:
   - "sh -e /etc/init.d/xvfb start"
 before_script:
   - "createuser -s ghettoblaster && rake db:setup"
+env:
+  global:
+    - secure: "M6TMF9HKeL8Gcjd0JYz9T6p25ve6/uirkd5mhJwPyRXnZS+ng1xV5IZ6GGY5\n6hQBbRoSfIgimcn+foP4kqQrKpmh6eR/E/I1Cbl7QMlWmDKVlLC/0en846+2\n/VHVPh5C3SON+OibFiXZl+VyTooGj9BIuy7uwaVATtFkA2fRHRw="
+after_success:
+  # Install the Heroku gem (or the Heroku toolbelt)
+  - "gem install heroku"
+  # Add your Heroku git repo:
+  - "git remote add heroku git@heroku.com:wunderkind.git"
+  # Turn off warnings about SSH keys:
+  - "echo 'Host heroku.com' >> ~/.ssh/config"
+  - "echo '   StrictHostKeyChecking no' >> ~/.ssh/config"
+  - "echo '   CheckHostIP no' >> ~/.ssh/config"
+  - "echo '   UserKnownHostsFile=/dev/null' >> ~/.ssh/config"
+  # Clear your current Heroku SSH keys:
+  - "heroku keys:clear"
+  # Add a new SSH key to Heroku
+  - "yes | heroku keys:add"
+  # Push to Heroku!
+  - "yes | git push heroku master"

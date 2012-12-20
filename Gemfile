@@ -21,6 +21,7 @@ group :development do
   gem "haml-rails"
   gem "ruby_parser"
   gem "hpricot"
+  gem "travis"
 end
 
 group :test do
