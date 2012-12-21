@@ -1,6 +1,6 @@
 env:
   global:
-    - secure: "YFAz6JkWHLGt1Xd9TrSzkMLCxKljn2MN/gFVFh+EIF8PHNuFtSiufcJQWDWp\nyZKpqaDnwvLNTA7v0suzmxdn/n7625nakda28l2YnIjTh2bjyhHtW8ftfUYa\nqi2M9UFvguOXbF3XTf79SZPnBDt8kXrULimPeg6jI5arBJ8fYuk="
+    secure: "Bvlfi1/Vd8m+pt+2qaxBr6mcsn1KpANi3zCLjotK0VCoot3dezangCF2r0sm\n8iymQ5nb0WElPXX1F7su9SHOByXsSSBtgSbcS7J5b6epGLwpHuQYbEKQl65C\nGR029SRr2iEdPA8tZF8sIxV1uepgj8Dhjz8NmFJFqcadyBhcsto="
 language: ruby
 bundler_args: "--without=development"
 before_install:
