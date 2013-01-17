@@ -18,16 +18,19 @@ Then, deploy it just like any other Rails app. Uses Postgres by default.
 
 ## Deploying on Heroku
 
-Here's how to deploy on Heroku. It works.
+Here's how to deploy on Heroku. It works. If you wish, you can fork the project and change the
+`.travis.yml` file to use your own Heroku API key, and deploy to Heroku simply by virtue of
+a passing test suite. We currently use Travis-CI to manage our continuous deployment on
+vip.thewonderbars.com.
 
 Create the app and push the code up
 
     $ heroku create my-ghettoblaster
     $ git push heroku master
 
-Set up the database
+Set up the database and load starter data
 
-    $ heroku run rake db:migrate
+    $ heroku run rake db:migrate db:seed
 
 Now, you can browse to <http://my-ghettoblaster.herokuapp.com/admin> and log in with
 username **admin@example.com** and password **password**. You should probably change this.
@@ -39,9 +42,9 @@ else.
 
 ## Work In Progress
 
-Note that this is a WIP and isn't fully developed.
+Note that this is a WIP and isn't fully developed. Below are the tasks we have not completed yet.
 
-## Roadmap
+### Roadmap
 
 - Add other copy text options to the front page.
 - Create "Blasts", which are messages to be sent out to the entire list of Subscribers when
