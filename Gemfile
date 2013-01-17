@@ -11,6 +11,7 @@ gem "bootstrap-sass"
 gem "activeadmin"
 gem "redcarpet"
 gem 'thin'
+gem 'airbrake'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
