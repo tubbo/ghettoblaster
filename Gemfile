@@ -10,6 +10,7 @@ gem "simple_form"
 gem "bootstrap-sass"
 gem "activeadmin"
 gem "redcarpet"
+gem 'thin'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -27,8 +28,4 @@ end
 group :test do
   gem "rspec-rails"
   gem "capybara"
-end
-
-group :production do
-  gem "unicorn"
 end
