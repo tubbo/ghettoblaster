@@ -2,7 +2,11 @@ require 'spec_helper'
 require 'capybara/rspec'
 
 feature "A subscriber to the list", js: true do
-  before { visit "/" }
+  fixtures :settings
+  before do
+    @status_setting = settings :status
+    visit "/"
+  end
 
   it "can view the new subscriber form" do
     page.should have_css '#new_subscriber'

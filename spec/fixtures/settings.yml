@@ -13,3 +13,6 @@ default_from:
 default_to:
   key: 'default_to_address'
   value: "vip@thewonderbars.com"
+status:
+  key: 'status'
+  value: 'open'
