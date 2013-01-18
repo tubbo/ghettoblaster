@@ -1,6 +1,6 @@
 ActiveAdmin.register Subscriber do
   index do
-    column :name
+    column("Name") { |s| link_to s.name, admin_subscriber_path(s) }
     column("Signed up on") { |s| s.created_at.strftime '%m/%d/%Y' }
   end
 
