@@ -1,6 +1,10 @@
 env:
   global:
     secure: "Bvlfi1/Vd8m+pt+2qaxBr6mcsn1KpANi3zCLjotK0VCoot3dezangCF2r0sm\n8iymQ5nb0WElPXX1F7su9SHOByXsSSBtgSbcS7J5b6epGLwpHuQYbEKQl65C\nGR029SRr2iEdPA8tZF8sIxV1uepgj8Dhjz8NmFJFqcadyBhcsto="
+    - "API_KEY=$AIRBRAKE_API_KEY"
+    - "TO=$RAILS_ENV"
+    - "REVISION=$(git rev-parse HEAD)"
+    - "REPO=ghettoblaster"
 language: ruby
 bundler_args: "--without=development"
 before_install:
@@ -25,3 +29,5 @@ after_success:
   - "yes | heroku keys:add"
   # Push to Heroku!
   - "yes | git push heroku master"
+  # Notify Airbake of deploy
+  - "rake airbrake:deploy"
