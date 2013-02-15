@@ -4,7 +4,7 @@ describe Setting do
   fixtures :settings
 
   it "can be retrieved programatically" do
-    Setting.for(:party_name).should == "Come Correct"
+    assert_equal "Come Correct", Setting.for(:party_name)
   end
 
   it "returns a blank string when a setting can't be found" do
