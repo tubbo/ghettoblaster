@@ -1,3 +1,6 @@
+#
+# CI config
+#
 env:
   global:
     secure: "Bvlfi1/Vd8m+pt+2qaxBr6mcsn1KpANi3zCLjotK0VCoot3dezangCF2r0sm\n8iymQ5nb0WElPXX1F7su9SHOByXsSSBtgSbcS7J5b6epGLwpHuQYbEKQl65C\nGR029SRr2iEdPA8tZF8sIxV1uepgj8Dhjz8NmFJFqcadyBhcsto="
