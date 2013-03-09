@@ -43,7 +43,7 @@ test:
   encoding: unicode
   database: ghettoblaster_test
   pool: 5
-  username: ghettoblaster
+  username: postgres
   password:
 
 production:
