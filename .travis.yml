@@ -15,7 +15,8 @@ before_install:
   - "export DISPLAY=:99.0"
   - "sh -e /etc/init.d/xvfb start"
 before_script:
-  - "bundle exec rake db:create db:migrate db:seed"
+  - "psql -c 'create database ghettoblaster_test;' -U postgres"
+  - "bundle exec rake db:migrate db:seed db:test:prepare"
 script: "bundle exec rspec --format=documentation"
 after_success:
   # Install the Heroku gem (or the Heroku toolbelt)
