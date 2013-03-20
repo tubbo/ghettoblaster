@@ -5,6 +5,7 @@ env:
   global:
     secure: "Bvlfi1/Vd8m+pt+2qaxBr6mcsn1KpANi3zCLjotK0VCoot3dezangCF2r0sm\n8iymQ5nb0WElPXX1F7su9SHOByXsSSBtgSbcS7J5b6epGLwpHuQYbEKQl65C\nGR029SRr2iEdPA8tZF8sIxV1uepgj8Dhjz8NmFJFqcadyBhcsto="
     secure: "Zom6sQXe4fIIqNf4T5JtJSQ4+JD1qqnQquUxI/IYnFbHyze4SCTler2CJSeU\nUEuZUr+B0OgFTSZdNZL8gJ3o1bdzg4+UawSRs1AzrzuJfxhN6GnDPuDkZB2H\nck3m2WFHVrD29+P2g8xvO1VtrNdj5f9KLvU6BKrRZkTWBPTkcE4="
+    - "RAILS_ENV=test"
     - "API_KEY=$AIRBRAKE_API_KEY"
     - "TO=$RAILS_ENV"
     - "REVISION=$(git rev-parse HEAD)"
