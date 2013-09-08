@@ -1,37 +1,26 @@
-#
-# CI config
-#
 env:
   global:
-    secure: "Bvlfi1/Vd8m+pt+2qaxBr6mcsn1KpANi3zCLjotK0VCoot3dezangCF2r0sm\n8iymQ5nb0WElPXX1F7su9SHOByXsSSBtgSbcS7J5b6epGLwpHuQYbEKQl65C\nGR029SRr2iEdPA8tZF8sIxV1uepgj8Dhjz8NmFJFqcadyBhcsto="
-    secure: "Zom6sQXe4fIIqNf4T5JtJSQ4+JD1qqnQquUxI/IYnFbHyze4SCTler2CJSeU\nUEuZUr+B0OgFTSZdNZL8gJ3o1bdzg4+UawSRs1AzrzuJfxhN6GnDPuDkZB2H\nck3m2WFHVrD29+P2g8xvO1VtrNdj5f9KLvU6BKrRZkTWBPTkcE4="
-    - "RAILS_ENV=test"
-    - "API_KEY=$AIRBRAKE_API_KEY"
-    - "TO=$RAILS_ENV"
-    - "REVISION=$(git rev-parse HEAD)"
-    - "REPO=ghettoblaster"
+  - secure: H6R85WZMID91bPqrv5ajK3c2t/RwIk0Ru2cgS3k4Vt4DLXfB8+s4nh4s1FOnJH7UQDdP+GkwyByRrhE2MCMjzkkxYLQSkwP0m9QuPwvSFIpSBY9pk6WSPmOvkP6UGKJIxcA4T2X2zQKrB1pB7iyFYQnfNivvFoEz99vbxlOEpdU=
+  - secure: RSJscXM4ifk5lJ1HFwyhlfuMQOwEaakXkiNYfjuke7km1ZREU79/Sxx9cCHJwbTc5Gpg8WVHlr02eJKz0spRddPqpG561rBAo3GgmJdP7W16klE4L4+bbLuAUkrL+UfWFqaO354CFfSs6XK81wpx5oxSQkgNZ8oKoUdCfBVV9n4=
+  - TO=production
+  - REVISION=$(git rev-parse HEAD)
+  - REPO=ghettoblaster
+  - USER=tubbo
 language: ruby
-bundler_args: "--without=development"
+bundler_args: --without=development
 before_install:
-  - "export DISPLAY=:99.0"
-  - "sh -e /etc/init.d/xvfb start"
-before_script: "bundle exec rake db:create db:migrate db:seed db:test:prepare"
-script: "bundle exec rspec --format=documentation"
+- export DISPLAY=:99.0
+- sh -e /etc/init.d/xvfb start
+before_script: bundle exec rake db:create db:migrate db:seed db:test:prepare
+script: bundle exec rspec --format=documentation
 after_success:
-  # Install the Heroku gem (or the Heroku toolbelt)
-  - "gem install heroku"
-  # Add your Heroku git repo:
-  - "git remote add heroku git@heroku.com:wunderkind.git"
-  # Turn off warnings about SSH keys:
-  - "echo 'Host heroku.com' >> ~/.ssh/config"
-  - "echo '   StrictHostKeyChecking no' >> ~/.ssh/config"
-  - "echo '   CheckHostIP no' >> ~/.ssh/config"
-  - "echo '   UserKnownHostsFile=/dev/null' >> ~/.ssh/config"
-  # Clear your current Heroku SSH keys:
-  - "heroku keys:clear"
-  # Add a new SSH key to Heroku
-  - "yes | heroku keys:add"
-  # Push to Heroku!
-  - "yes | git push heroku master"
-  # Notify Airbake of deploy
-  - "bundle exec rake airbrake:deploy"
+- gem install heroku
+- git remote add heroku git@heroku.com:wunderkind.git
+- echo 'Host heroku.com' >> ~/.ssh/config
+- echo '   StrictHostKeyChecking no' >> ~/.ssh/config
+- echo '   CheckHostIP no' >> ~/.ssh/config
+- echo '   UserKnownHostsFile=/dev/null' >> ~/.ssh/config
+- heroku keys:clear
+- yes | heroku keys:add
+- yes | git push heroku master
+- bundle exec rake airbrake:deploy
