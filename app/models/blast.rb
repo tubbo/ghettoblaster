@@ -20,6 +20,7 @@ private
       unless published?
 
     self.sent_at = DateTime.now
-    logger.info "Message sent to all subscribers."
+
+    BlastMailer.announcement(self).deliver!
   end
 end

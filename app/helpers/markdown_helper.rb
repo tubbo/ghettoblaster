@@ -1,3 +1,5 @@
+require 'redcarpet'
+
 module MarkdownHelper
   def markdown source
     markdown_parser.render(source).html_safe

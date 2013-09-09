@@ -1,5 +1,5 @@
 class BlastMailer < ActionMailer::Base
-  helper :markdown
+  include MarkdownHelper
 
   def announcement for_blast
     @blast = for_blast
@@ -7,6 +7,7 @@ class BlastMailer < ActionMailer::Base
     mail from: Setting.for(:default_from_address), \
            to: Setting.for(:default_to_address),
           bcc: subscribers,
-      subject: @blast.subject
+      subject: @blast.subject,
+         body: markdown(@blast.body)
   end
 end
