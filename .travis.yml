@@ -10,5 +10,5 @@ env:
 language: ruby
 bundler_args: --without=development
 before_script: bundle exec rake db
-script: bundle exec rspec --format=documentation
+script: bundle exec rake test
 after_success: bundle exec rake deploy RAILS_ENV=production
