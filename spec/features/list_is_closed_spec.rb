@@ -1,7 +1,7 @@
 require 'spec_helper'
 require 'capybara/rspec'
 
-feature "A subscriber to the list", js: true do
+feature "A subscriber to the list", js: !ENV['CI'] do
   fixtures :settings
   before do
     @status_setting = settings :status
