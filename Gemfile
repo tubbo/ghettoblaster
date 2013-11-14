@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.0.0'
 
 gem 'rails', '3.2.13'
 gem 'pg'
@@ -14,6 +15,7 @@ gem 'thin'
 gem 'airbrake'
 gem 'sidekiq'
 gem 'rakeflow'
+gem 'strong_parameters'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -29,6 +31,13 @@ group :development do
 end
 
 group :test do
-  gem "rspec-rails"
-  gem "capybara"
+  gem 'rspec-rails'
+  gem 'sauce', '~> 3.1.1'
+  gem 'sauce-connect'
+  gem 'capybara', '~> 2.0.3', :require => false
+  gem 'parallel_tests'
+end
+
+group :development, :test do
+  gem 'pry-rails'
 end
