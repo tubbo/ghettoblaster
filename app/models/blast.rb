@@ -1,24 +1,24 @@
 class Blast < ActiveRecord::Base
-  attr_accessible :body, :subject, :is_published
-  validates_presence_of :body, :subject
-
-  after_save :deliver_if_published
+  validates :subject, presence: true
+  validates :body, presence: true
 
   def sent?
     self.sent_at.present?
   end
 
-  def published?
-    self.is_published
+  def deliver
+    return false unless deliverable?
+    BlastDeliveryWorker.perform_async id
   end
 
-  private
-  def deliver_if_published
-    logger.debug "Message already sent." and return \
-      if sent?
-    logger.warn "Message not sent: Not published." and return \
-      unless published?
+  def published?
+    !!self.is_published
+  end
 
-    BlastDeliveryWorker.perform_async id
+  def deliverable?
+    return false unless valid?
+    errors.add :base, "is not published" unless published?
+    errors.add :base, "has already been sent" if sent?
+    errors.any?
   end
 end

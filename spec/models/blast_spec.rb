@@ -1,28 +1,46 @@
 require 'spec_helper'
 
 describe Blast do
-  subject { Blast.new(subject: "Announcement", body: "test") }
-
-  it "sends an email out when saved" do
-    subject.is_published = true
-
-    subject.save.should == true
-    subject.should be_published
-    subject.should be_sent
+  subject do
+    Blast.new \
+      subject: "Announcement",
+      body: "lorem ipsum",
+      is_published: true
   end
 
-  it "fails to send when already sent" do
-    delay = 1.day.ago
-    subject.sent_at = delay
-
-    subject.save.should == true
-    subject.should be_sent
-    subject.sent_at.should == delay
+  before do
+    BlastDeliveryWorker.stub(:perform_async) { |id| true }
   end
 
-  it "fails to send when not published" do
-    subject.save.should == true
-    subject.should_not be_published
-    subject.should_not be_sent
+  let(:past_date) { 1.day.ago.to_date }
+
+  it "validates deliverability" do
+    expect(subject).to be_valid
+    expect(subject).to be_deliverable, "#{subject.errors.full_messages}"
+  end
+
+  it "instructs a background job to deliver its message" do
+    expect(subject.deliver).to be_true
+  end
+
+  it "will not deliver when not valid" do
+    subject.body = nil
+
+    expect(subject).to_not be_valid
+    expect(subject).to_not be_deliverable
+  end
+
+  it "will not deliver when already sent" do
+    subject.sent_at = past_date
+
+    expect(subject).to be_sent
+    expect(subject).to_not be_deliverable, "#{subject.errors.full_messages}"
+  end
+
+  it "will not deliver when not published" do
+    subject.is_published = false
+
+    expect(subject).to_not be_published
+    expect(subject).to_not be_deliverable, "#{subject.errors.full_messages}"
   end
 end
