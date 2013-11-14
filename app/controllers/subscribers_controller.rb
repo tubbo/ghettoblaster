@@ -10,7 +10,7 @@ class SubscribersController < ApplicationController
 
   # POST /subscribers
   def create
-    @subscriber = Subscriber.new params[:subscriber]
+    @subscriber = Subscriber.new creatable_params
 
     if @subscriber.save
       redirect_to '/thanks'
@@ -19,5 +19,10 @@ class SubscribersController < ApplicationController
         alert: "Error: #{@subscriber.errors.full_messages.join(', ')}",
         status: 422
     end
+  end
+
+  private
+  def creatable_params
+    params.require(:subscriber).permit([:name, :email])
   end
 end
