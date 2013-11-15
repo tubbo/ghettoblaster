@@ -17,8 +17,10 @@ class Blast < ActiveRecord::Base
 
   def deliverable?
     return false unless valid?
+
     errors.add :base, "is not published" unless published?
     errors.add :base, "has already been sent" if sent?
-    errors.any?
+
+    errors.empty?
   end
 end
