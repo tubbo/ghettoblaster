@@ -315,7 +315,6 @@ DEPENDENCIES
   hpricot
   jquery-rails
   json
-  parallel_tests
   pg
   pry-rails
   rails (= 3.2.13)

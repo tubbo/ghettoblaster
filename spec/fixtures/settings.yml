@@ -16,3 +16,6 @@ default_to:
 status:
   key: 'status'
   value: 'open'
+status_closed:
+  key: 'status'
+  value: 'closed'

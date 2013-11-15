@@ -1,19 +1,13 @@
 require 'spec_helper'
-require 'capybara/rspec'
 
-feature "A subscriber to the list", js: !ENV['CI'] do
+feature "A subscriber to the list" do
   fixtures :settings
-  before do
-    @status_setting = settings :status
-    @status_setting.update_attributes(value: 'closed')
-    visit "/"
-  end
 
-  it "can not view the new subscriber form" do
+  let(:status_setting) { settings :status_closed }
+
+  before { visit '/' }
+
+  it "can not view the new subscriber form", sauce: true, js: true do
     page.should have_css '#new_subscriber'
-  end
-
-  after do
-    @status_setting.update_attributes(value: 'open')
   end
 end
