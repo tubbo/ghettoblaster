@@ -16,13 +16,12 @@ class SubscribersController < ApplicationController
       redirect_to '/thanks'
     else
       render 'index', \
-        alert: "Error: #{@subscriber.errors.full_messages.join(', ')}",
-        status: 422
+        alert: "Error: #{@subscriber.errors.full_messages.join(', ')}"
     end
   end
 
   private
   def creatable_params
-    params.require(:subscriber).permit([:name, :email])
+    params.require(:subscriber).permit :name, :email
   end
 end
