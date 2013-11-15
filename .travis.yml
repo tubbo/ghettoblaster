@@ -12,6 +12,8 @@ addons:
     username: 'tomphoolery'
     access_key: "gj7NvYOpo8HdMEdu9ChtbAWqVlXHPACm9teN94EZqPFNcX0bNyzBGWP/Wa7zh01xFY3gN3LHUSuR+1bA0es/0f7hd0y2iyRkNVCLmLL0uMNB+0dxVV+glOQ6H5RpLXKBLj1Nr8QX58jzfbNS5Zrt5O9U1huijBKoolo+osK3uuQ="
 language: ruby
+rvm:
+  - 2.0.0-p247
 bundler_args: --without=development
 before_script: bundle exec rake db
 script: bundle exec rake test
