@@ -15,13 +15,25 @@ class SubscribersController < ApplicationController
     if @subscriber.save
       redirect_to '/thanks'
     else
-      render 'index', \
-        alert: "Error: #{@subscriber.errors.full_messages.join(', ')}"
+      render 'index', alert: with_error_message
     end
+  end
+
+  # GET /thanks
+  def thanks
+    render 'thanks', layout: !request.xhr?
   end
 
   private
   def creatable_params
     params.require(:subscriber).permit :name, :email
+  end
+
+  def with_error_message
+    "Error: #{subscriber_errors}"
+  end
+
+  def subscriber_errors
+    @subscriber.errors.full_messages.join ', '
   end
 end

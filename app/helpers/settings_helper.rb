@@ -1,4 +1,8 @@
 module SettingsHelper
+  def thank_you_text
+    Setting.for :thank_you_text
+  end
+
   def subscribe_button_text
     Setting.for :subscribe_button
   end
