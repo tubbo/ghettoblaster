@@ -1,9 +1,14 @@
 # Ghettoblaster
 
-Ghettoblaster is your personal email announcement list. Write your emails in Markdown, preview
-them with Mailcatcher, and obtain new email submissions from an innocuous looking front page. It
-is in use to manage The Wonder Bars/Wax Poetic's email lists as well as
-various other lists for small parties.
+Ghettoblaster is your personal email announcement list. Write your emails
+and preview them on-the-fly, then deliver them to your entire list with
+one click. You can obtain new email submissions from our
+innocuous-looking front page.
+
+## In The Wild
+
+It's in use to manage the mailing list for Wonder Bars/Wax Poetic/Wyld
+Lyfe events as well as by other event promoters in Philadelphia...
 
 ## Setup
 
