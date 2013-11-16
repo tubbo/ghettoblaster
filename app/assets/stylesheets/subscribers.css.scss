@@ -1,3 +1,9 @@
 #subscribe {
   margin-top: 25px;
 }
+
+@media only screen and (max-device-width: 480px) {
+  #image {
+    display: none;
+  }
+}
