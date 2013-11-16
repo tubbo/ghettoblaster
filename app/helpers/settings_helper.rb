@@ -1,4 +1,8 @@
 module SettingsHelper
+  def subscribe_button_text
+    Setting.for :subscribe_button
+  end
+
   def headline
     Setting.for :headline
   end
