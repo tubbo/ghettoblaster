@@ -3,11 +3,11 @@ require 'spec_helper'
 describe Setting do
   fixtures :settings
 
-  %i(party_name nonexistant flyer_url).each do |setting_name|
+  %i(party_name nonexistant headline).each do |setting_name|
     let(setting_name) { Setting.for setting_name }
   end
 
-  let(:flyer_url_from_yaml) { Setting.from_yaml[:flyer_url] }
+  let(:setting_from_yaml) { Setting.from_yaml[:headline] }
 
   it "can be retrieved programatically" do
     expect(party_name).to eq('Come Correct')
@@ -18,6 +18,6 @@ describe Setting do
   end
 
   it "returns the yaml setting when the setting has no db value" do
-    expect(flyer_url).to eq(flyer_url_from_yaml)
+    expect(headline).to eq(setting_from_yaml)
   end
 end
