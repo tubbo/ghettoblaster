@@ -4,6 +4,7 @@ Ghettoblaster::Application.routes.draw do
   devise_for :users, ActiveAdmin::Devise.config
 
   resources :subscribers, only: [:index, :create]
-  get '/thanks' => 'high_voltage/pages#show', id: 'thanks'
+
+  get '/thanks' => 'subscribers#thanks'
   root to: 'subscribers#index'
 end

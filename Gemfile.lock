@@ -126,7 +126,6 @@ GEM
       rubyzip
     heroku-api (0.3.15)
       excon (~> 0.25.1)
-    high_voltage (1.2.1)
     highline (1.6.15)
     hike (1.2.3)
     hpricot (0.8.6)
@@ -302,9 +301,6 @@ GEM
       json
       redis (>= 3.0.4)
       redis-namespace
-    simple_form (2.0.4)
-      actionpack (~> 3.0)
-      activemodel (~> 3.0)
     sinatra (1.4.4)
       rack (~> 1.4)
       rack-protection (~> 1.4)
@@ -360,7 +356,6 @@ DEPENDENCIES
   foreman
   haml
   haml-rails
-  high_voltage
   hpricot
   inherited_resources (~> 1.4)
   jquery-rails
@@ -384,7 +379,6 @@ DEPENDENCIES
   sauce (~> 3.1.1)
   sauce-connect
   sidekiq
-  simple_form
   strong_parameters
   travis
   uglifier (>= 1.0.3)

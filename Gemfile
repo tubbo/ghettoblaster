@@ -6,8 +6,6 @@ gem 'pg'
 gem 'json'
 gem 'jquery-rails'
 gem "haml"
-gem "high_voltage"
-gem "simple_form"
 gem "activeadmin"
 gem 'inherited_resources', '~> 1.4'
 gem "redcarpet"
