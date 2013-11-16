@@ -17,6 +17,8 @@ language: ruby
 rvm:
   - 2.0.0-p247
 bundler_args: --without=development
-before_script: bundle exec rake db
+before_script:
+  - bundle exec rake db
+  - curl 'https://gist.github.com/patcon/5206194/raw/sauce_connect_setup.sh' | bash
 script: bundle exec rake test
 after_success: bundle exec rake deploy RAILS_ENV=production
