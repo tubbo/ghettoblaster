@@ -39,8 +39,11 @@ Ghettoblaster::Application.configure do
   # Use a different logger for distributed setups
   # config.logger = ActiveSupport::TaggedLogging.new(SyslogLogger.new)
 
-  # Use a different cache store in production
-  # config.cache_store = :mem_cache_store
+  # Use Redis to store the cache in production
+  config.cache_store = :redis_store
+
+  # Use Redis to store sessions in production
+  config.session_store :redis_store, :key => '_ghettoblaster_session'
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server
   # config.action_controller.asset_host = "http://assets.example.com"
