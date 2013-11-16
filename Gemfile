@@ -17,7 +17,8 @@ gem 'sidekiq'
 gem 'rakeflow'
 gem 'strong_parameters'
 gem 'foreman'
-
+gem 'resque'
+gem 'resque_mailer'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -38,10 +39,17 @@ group :test do
   gem 'capybara', '~> 2.0.3', :require => false
   gem 'sauce', '~> 3.1.1'
   gem 'sauce-connect'
+  #gem 'resque-spec'
 end
 
 group :development, :test do
   gem 'pry-rails'
   gem 'pry-byebug'
   gem 'quiet_assets'
+end
+
+group :production do
+  gem 'rails_12factor'
+  gem 'rack-cache'
+  gem 'redis-rails'
 end

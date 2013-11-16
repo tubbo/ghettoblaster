@@ -5,3 +5,5 @@ facebook_event: "https://www.google.com"
 google_analytics: "UA-???????-?"
 status: 'open'
 subscribe_button: "Add me to the guest list!"
+default_from: events@waxpoeticrecords.com
+default_to: vip@waxpoeticrecords.com
