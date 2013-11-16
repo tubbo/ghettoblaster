@@ -13,7 +13,7 @@ class SubscribersController < ApplicationController
     @subscriber = Subscriber.new creatable_params
 
     if @subscriber.save
-      redirect_to '/thanks'
+      render 'thanks', layout: !request.xhr?
     else
       render 'index', alert: with_error_message
     end
@@ -21,7 +21,7 @@ class SubscribersController < ApplicationController
 
   # GET /thanks
   def thanks
-    render 'thanks', layout: !request.xhr?
+    render 'thanks'
   end
 
   private

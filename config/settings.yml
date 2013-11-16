@@ -7,3 +7,4 @@ status: 'open'
 subscribe_button: "Add me to the guest list!"
 default_from: events@waxpoeticrecords.com
 default_to: vip@waxpoeticrecords.com
+thank_you_text: "You're now on the guest list."
