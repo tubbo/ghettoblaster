@@ -11,7 +11,7 @@ gem "simple_form"
 gem "bootstrap-sass"
 gem "activeadmin"
 gem "redcarpet"
-gem 'thin'
+gem 'puma'
 gem 'airbrake'
 gem 'sidekiq'
 gem 'rakeflow'
