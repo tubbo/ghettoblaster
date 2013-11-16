@@ -10,7 +10,6 @@ describe BlastMailer do
     @blast = Blast.new(subject: "Announcement", body: "test")
   end
 
-  subject { BlastMailer.new }
   let(:email) { BlastMailer.announcement(@blast) }
 
   it "sends a mail bcc'd to subscribers and to a dummy address, with the blast body and subject" do
@@ -19,9 +18,5 @@ describe BlastMailer do
     email.subject.should == @blast.subject
     email.encoded.should =~ /#{@blast.body}/
     email.from.should == [@the_band]
-  end
-
-  it "collects parameters" do
-    expect(subject.with_parameters).to be_a Hash
   end
 end

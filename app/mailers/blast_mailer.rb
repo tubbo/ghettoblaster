@@ -1,4 +1,4 @@
-require 'resque/mailer'
+require 'resque_mailer'
 
 # Mails out "blast" announcements to all subscribed email addresses.
 # Enqueues mailings with Resque.

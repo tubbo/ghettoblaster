@@ -8,11 +8,11 @@ facebook_event:
   key: "facebook_event"
   value: "https://www.facebook.com/events/377400385685894/"
 default_from:
-  key: 'default_from_address'
-  value: "band@thewonderbars.com"
+  key: 'default_from'
+  value: "events@waxpoeticrecords.com"
 default_to:
-  key: 'default_to_address'
-  value: "vip@thewonderbars.com"
+  key: 'default_to'
+  value: "vip@waxpoeticrecords.com"
 status:
   key: 'status'
   value: 'open'
