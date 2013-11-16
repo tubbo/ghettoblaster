@@ -1,12 +1,14 @@
 env:
   global:
-    - secure: H6R85WZMID91bPqrv5ajK3c2t/RwIk0Ru2cgS3k4Vt4DLXfB8+s4nh4s1FOnJH7UQDdP+GkwyByRrhE2MCMjzkkxYLQSkwP0m9QuPwvSFIpSBY9pk6WSPmOvkP6UGKJIxcA4T2X2zQKrB1pB7iyFYQnfNivvFoEz99vbxlOEpdU=
-    - secure: RSJscXM4ifk5lJ1HFwyhlfuMQOwEaakXkiNYfjuke7km1ZREU79/Sxx9cCHJwbTc5Gpg8WVHlr02eJKz0spRddPqpG561rBAo3GgmJdP7W16klE4L4+bbLuAUkrL+UfWFqaO354CFfSs6XK81wpx5oxSQkgNZ8oKoUdCfBVV9n4=
+    - secure: "H6R85WZMID91bPqrv5ajK3c2t/RwIk0Ru2cgS3k4Vt4DLXfB8+s4nh4s1FOnJH7UQDdP+GkwyByRrhE2MCMjzkkxYLQSkwP0m9QuPwvSFIpSBY9pk6WSPmOvkP6UGKJIxcA4T2X2zQKrB1pB7iyFYQnfNivvFoEz99vbxlOEpdU="
+    - secure: "RSJscXM4ifk5lJ1HFwyhlfuMQOwEaakXkiNYfjuke7km1ZREU79/Sxx9cCHJwbTc5Gpg8WVHlr02eJKz0spRddPqpG561rBAo3GgmJdP7W16klE4L4+bbLuAUkrL+UfWFqaO354CFfSs6XK81wpx5oxSQkgNZ8oKoUdCfBVV9n4="
+    - secure: "fXe5ZsoeOe0o/sJ5TzxcjqtXiPMNmCfM2Xlt46YRvu7wOM0+cF/qi+7HUiqmQr03POBMn0lKbnrCzYk0dHRqH/PpicreIPvp3PtZtNpQygeaKqXVpy2eodKnMj/W6h5iJd5ST/gYygrySUcgChpqdGoVOs0+dDOGw6VgbplQKX0="
     - TO=production
     - REVISION=$(git rev-parse HEAD)
     - REPO=ghettoblaster
     - USER=tubbo
     - CI=true
+    - SAUCE_USERNAME="tomphoolery"
 addons:
   sauce_connect:
     username: 'tomphoolery'
