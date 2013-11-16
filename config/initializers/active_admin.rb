@@ -151,4 +151,8 @@ ActiveAdmin.setup do |config|
   #
   # Set the CSV builder options (default is {})
   # config.csv_options = {}
+
+  config.before_filter do
+    params.permit!
+  end
 end
