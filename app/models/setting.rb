@@ -13,13 +13,23 @@ class Setting < ActiveRecord::Base
   #
   def self.for a_key
     setting = Setting.where(key: "#{a_key}").first
+    yaml_setting = from_yaml[a_key]
 
-    if setting.present?
+    case true
+    when setting.present? && !setting.value.blank?
       setting.value
+    when yaml_setting.present?
+      yaml_setting
     else
       logger.error "Error: Setting :#{a_key} was not found in the database."
       ""
     end
+  end
+
+  # A reader for loading settings from our local YAML file. Useful for
+  # defaults.
+  def self.from_yaml
+    @yaml ||= YAML::load_file("#{Rails.root}/config/settings.yml").with_indifferent_access
   end
 
   # When this Setting is represented as a String, simply print the

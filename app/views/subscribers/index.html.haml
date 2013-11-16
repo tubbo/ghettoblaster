@@ -1,8 +1,6 @@
-= link_to image_tag(Setting.for(:flyer_url)), Setting.for(:facebook_event), id: 'flyer'
-
-
-- if Setting.for(:status) == 'closed'
-  %h1 Come Correct Guest List is no longer accepting signups
-- else
-  %h1 Come Correct Guest List: Get in for $10!!!
-  = render 'subscribers/form', object: @subscriber
+.row
+  .large-6-columns
+    = link_to flyer_image_tag, facebook_event_url, id: 'flyer'
+  .large-6.columns
+    = headline_tag
+    = render 'subscribers/form', object: @subscriber unless list_closed?
