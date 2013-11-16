@@ -1,4 +1,5 @@
-= simple_form_for @subscriber do |form|
-  = form.input :name
-  = form.input :email
-  = form.button :submit, value: "Add me to the guest list!"
+= form_for @subscriber do |f|
+  = f.text_field :name, placeholder: 'Name'
+  = f.email_field :email, placeholder: 'Email Address'
+  .right
+    = f.submit 'Add me to the guest list!', class: 'success button round'

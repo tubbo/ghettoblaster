@@ -1,6 +1,7 @@
-.row
-  .large-6-columns
+#subscribe.row
+  .large-6.columns
     = link_to flyer_image_tag, facebook_event_url, id: 'flyer'
   .large-6.columns
-    = headline_tag
+    %h1= party_name
+    %h2.right= headline_text
     = render 'subscribers/form', object: @subscriber unless list_closed?
