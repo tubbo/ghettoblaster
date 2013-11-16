@@ -17,11 +17,13 @@ class Setting < ActiveRecord::Base
 
     case true
     when setting.present? && !setting.value.blank?
+      logger.info "Fetched Setting :#{a_key} from DB overrides."
       setting.value
     when yaml_setting.present?
+      logger.info "Fetched Setting :#{a_key} from defaults."
       yaml_setting
     else
-      logger.error "Error: Setting :#{a_key} was not found in the database."
+      logger.error "Setting :#{a_key} could not be found."
       ""
     end
   end
