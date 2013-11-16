@@ -16,6 +16,7 @@ gem 'airbrake'
 gem 'sidekiq'
 gem 'rakeflow'
 gem 'strong_parameters'
+gem 'foreman'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
