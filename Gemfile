@@ -1,22 +1,26 @@
 source 'https://rubygems.org'
 ruby '2.0.0'
 
-gem 'rails', '~> 3.2'
-gem 'pg'
-gem 'json'
-gem 'jquery-rails'
-gem "haml"
-gem "activeadmin"
-gem 'inherited_resources', '~> 1.4'
-gem "redcarpet"
-gem 'puma'
-gem 'airbrake'
-gem 'sidekiq'
-gem 'rakeflow'
-gem 'strong_parameters'
-gem 'foreman'
-gem 'resque'
-gem 'resque_mailer'
+group :framework do
+  gem 'rails', '~> 3.2'
+  gem 'pg'
+  gem 'puma'
+end
+
+group :engines do
+  gem 'zen_garden'
+  gem 'inherited_resources', '~> 1.4'
+  gem 'strong_parameters'
+  gem 'haml-rails'
+  gem 'activeadmin'
+end
+
+group :libraries do
+  gem 'redcarpet'
+  gem 'foreman'
+  gem 'resque'
+  gem 'resque_mailer'
+end
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -26,18 +30,16 @@ group :assets do
 end
 
 group :development do
-  gem "haml-rails"
-  gem "ruby_parser"
-  gem "hpricot"
   gem "travis"
+  gem 'meta_request'
 end
 
 group :test do
   gem 'rspec-rails'
   gem 'capybara', '~> 2.0.3', :require => false
   gem 'sauce', '~> 3.1.1'
-  gem 'sauce-connect'
-  #gem 'resque-spec'
+  #gem 'sauce-connect'
+  gem 'resque_spec'
 end
 
 group :development, :test do
@@ -50,4 +52,5 @@ group :production do
   gem 'rails_12factor'
   gem 'rack-cache'
   gem 'redis-rails'
+  gem 'airbrake'
 end
