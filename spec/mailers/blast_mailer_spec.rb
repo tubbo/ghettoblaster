@@ -1,22 +1,35 @@
 require "spec_helper"
 
 describe BlastMailer do
-  fixtures :subscribers, :settings
+  include MarkdownHelper
 
-  before do
-    @the_band = settings(:default_from).value
-    @dummy_address = settings(:default_to).value
-    @subscriber = subscribers :tubbo
-    @blast = Blast.new(subject: "Announcement", body: "test")
+  fixtures :subscribers, :settings, :blasts
+
+  let(:dummy_address) { settings(:default_to).value }
+  let(:the_band) { settings(:default_from).value }
+  let(:subscriber) { subscribers :tubbo }
+  let(:blast) { blasts :wonderland_announcement }
+  let(:markdown_body) { markdown @blast.body }
+
+  subject { BlastMailer.announcement(blast) }
+
+  it "sends to the list of subscribers" do
+    expect(subject.bcc).to include(subscriber.email)
   end
 
-  let(:email) { BlastMailer.announcement(@blast) }
+  it "masks 'To:' with a dummy address" do
+    expect(subject.to).to include(dummy_address)
+  end
 
-  it "sends a mail bcc'd to subscribers and to a dummy address, with the blast body and subject" do
-    email.bcc.should include(@subscriber.email)
-    email.to.should == [@dummy_address]
-    email.subject.should == @blast.subject
-    email.encoded.should =~ /#{@blast.body}/
-    email.from.should == [@the_band]
+  it "uses the band email as 'From:'" do
+    expect(subject.from).to include(the_band)
+  end
+
+  it "uses the subject of the blast" do
+    expect(subject.subject).to eq(blast.subject)
+  end
+
+  it "parses Markdown to form the body" do
+    expect(subject.encoded).to match(/#{markdown_body}/)
   end
 end

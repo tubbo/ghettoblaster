@@ -8,10 +8,6 @@ describe Blast do
       is_published: true
   end
 
-  before do
-    BlastDeliveryWorker.stub(:perform_async) { |id| true }
-  end
-
   let(:past_date) { 1.day.ago.to_date }
 
   it "validates deliverability" do
