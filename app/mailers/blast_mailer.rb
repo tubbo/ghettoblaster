@@ -4,7 +4,8 @@ require 'resque_mailer'
 # Enqueues mailings with Resque.
 
 class BlastMailer < ActionMailer::Base
-  include MarkdownHelper, Resque::Mailer
+  include MarkdownHelper
+  include Resque::Mailer
 
   attr_reader :blast
 
