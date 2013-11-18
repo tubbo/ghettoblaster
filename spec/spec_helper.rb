@@ -7,12 +7,10 @@ require 'rspec/rails'
 require 'rspec/autorun'
 require 'capybara/rails'
 require 'capybara/rspec'
+require 'capybara/poltergeist'
 
-# Use Sauce to run Capybara feature specs on CI
-if ENV['CI']
-  require 'sauce/capybara'
-  Capybara.javascript_driver = :sauce
-end
+# Use Poltergeist to run Capybara feature specs
+Capybara.javascript_driver = :poltergeist
 
 # Configure RSpec for running...everything else
 RSpec.configure do |config|

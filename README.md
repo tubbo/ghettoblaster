@@ -12,13 +12,19 @@ Lyfe events as well as by other event promoters in Philadelphia...
 
 ## Setup
 
-Clone the git repo
+Clone the git repo:
 
-    $ git clone git://github.com/tubbo/ghettoblaster.git
+```bash
+$ git clone git://github.com/tubbo/ghettoblaster.git
+```
 
-Install the gems
+Install dependencies:
 
-    $ cd ghettoblaster && bundle install
+```bash
+$ cd ghettoblaster
+$ brew install phantomjs # or use your own package manager
+$ bundle install
+```
 
 Set up the database
 

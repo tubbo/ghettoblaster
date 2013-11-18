@@ -7,11 +7,6 @@ env:
     - USER=tubbo
     - secure: "bxZjLLXA8zSQ02pkJQgxTcA90PulNhsJKAvyAGdss1CyzoWsAQw0eHObQM9Z\n3iOtUAu3dGz/oUocKBF1EsKWdlfCp3i6r7Sxb/xJODjyHoEHg6K83Or0kKlJ\nxUh8ZLeiF5c2d+CmGyPu3oIf02aLgDbByXfettBFbwRdDMPlmjQ="
     - secure: "e27IEl5TEfmWPuMPrJkfIQmcfQJACGgahv43dStyxIXOTsTfvWMVlH08FUkY\nWM2cm24qaCcWLtkWXAeY/wqjJWDtN0SqRjmIHp6mewUMER0yfMpK8G5qoGaW\nvCB+uEs0ConaTsLqMTK2jpByUjkfvij5z52DpnNnN51GiTvdA84="
-addons:
-  sauce_connect:
-    username: tomphoolery
-    access_key:
-      - secure: "C94wu+ghUycmSw0Rb9JcYoUjkXBiLxMmj+t8s9j3LILpUZlXf0o6QfDfkbYz\nsRbcyegGD8JRQsTHPHhdXmOLqpG7rSrW9LXSnjsduhH/kbqjRp7U8T2TDDDQ\nHb7MoaOLxLko2LN87sE0TkEZ99Yjhjl7NSzgCqK1RERDMBT/baE="
 language: ruby
 rvm:
   - 2.0.0-p247

@@ -38,8 +38,7 @@ group :test do
   gem 'rspec-rails'
   gem 'capybara', '~> 2.0.3', :require => false
   gem 'resque_spec'
-  gem 'sauce', '~> 3.1.1', :require => false
-  gem 'sauce-connect', :require => false
+  gem 'poltergeist'
 end
 
 group :development, :test do

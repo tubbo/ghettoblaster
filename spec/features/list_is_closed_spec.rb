@@ -7,7 +7,7 @@ feature "A subscriber to the list" do
 
   before { visit '/' }
 
-  it "can not view the new subscriber form", sauce: true, js: true do
+  it "can not view the new subscriber form",  js: true do
     page.should have_css '#new_subscriber'
   end
 end
