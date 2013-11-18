@@ -9,7 +9,7 @@ describe BlastMailer do
   let(:the_band) { settings(:default_from).value }
   let(:subscriber) { subscribers :tubbo }
   let(:blast) { blasts :wonderland_announcement }
-  let(:markdown_body) { markdown @blast.body }
+  let(:markdown_body) { markdown(blast.body).gsub(/\n/, '') }
 
   subject { BlastMailer.announcement(blast) }
 
@@ -30,6 +30,6 @@ describe BlastMailer do
   end
 
   it "parses Markdown to form the body" do
-    expect(subject.encoded).to match(/#{markdown_body}/)
+    expect(subject.encoded).to match(markdown_body)
   end
 end
