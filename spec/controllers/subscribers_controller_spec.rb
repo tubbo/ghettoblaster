@@ -23,7 +23,7 @@ describe SubscribersController do
       end
 
       it "redirects to the thank you page" do
-        expect(response.status).to eq(302)
+        expect(response.status).to eq(200)
       end
     end
 

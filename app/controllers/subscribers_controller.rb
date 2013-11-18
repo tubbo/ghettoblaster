@@ -13,7 +13,7 @@ class SubscribersController < ApplicationController
     @subscriber = Subscriber.new creatable_params
 
     if @subscriber.save
-      render 'thanks', layout: !request.xhr?
+      render 'thanks', layout: use_layout?
     else
       render 'index', alert: with_error_message
     end
@@ -35,5 +35,9 @@ class SubscribersController < ApplicationController
 
   def subscriber_errors
     @subscriber.errors.full_messages.join ', '
+  end
+
+  def use_layout?
+    not request.xhr?
   end
 end
