@@ -8,11 +8,11 @@ class Blast < ActiveRecord::Base
 
   def deliver
     return false unless deliverable?
-    BlastDeliveryWorker.perform_async id
+    BlastMailer.announcement(self).deliver
   end
 
   def published?
-    !!self.is_published
+    !!is_published?
   end
 
   def deliverable?
