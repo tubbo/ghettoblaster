@@ -7,13 +7,12 @@ require 'rspec/rails'
 require 'rspec/autorun'
 require 'capybara/rails'
 require 'capybara/rspec'
-require 'sauce/capybara'
 
-# Re-enable when we have support files to deal with
-#Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
-
-# Use Sauce to run Capybara feature specs
-Capybara.javascript_driver = :sauce
+# Use Sauce to run Capybara feature specs on CI
+if ENV['CI']
+  require 'sauce/capybara'
+  Capybara.javascript_driver = :sauce
+end
 
 # Configure RSpec for running...everything else
 RSpec.configure do |config|

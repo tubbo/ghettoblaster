@@ -37,9 +37,9 @@ end
 group :test do
   gem 'rspec-rails'
   gem 'capybara', '~> 2.0.3', :require => false
-  gem 'sauce', '~> 3.1.1'
-  #gem 'sauce-connect'
   gem 'resque_spec'
+  gem 'sauce', '~> 3.1.1', :require => false
+  gem 'sauce-connect', :require => false
 end
 
 group :development, :test do

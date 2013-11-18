@@ -1,20 +1,21 @@
+---
 env:
   global:
-    - secure: "H6R85WZMID91bPqrv5ajK3c2t/RwIk0Ru2cgS3k4Vt4DLXfB8+s4nh4s1FOnJH7UQDdP+GkwyByRrhE2MCMjzkkxYLQSkwP0m9QuPwvSFIpSBY9pk6WSPmOvkP6UGKJIxcA4T2X2zQKrB1pB7iyFYQnfNivvFoEz99vbxlOEpdU="
-    - secure: "RSJscXM4ifk5lJ1HFwyhlfuMQOwEaakXkiNYfjuke7km1ZREU79/Sxx9cCHJwbTc5Gpg8WVHlr02eJKz0spRddPqpG561rBAo3GgmJdP7W16klE4L4+bbLuAUkrL+UfWFqaO354CFfSs6XK81wpx5oxSQkgNZ8oKoUdCfBVV9n4="
-    - secure: "fXe5ZsoeOe0o/sJ5TzxcjqtXiPMNmCfM2Xlt46YRvu7wOM0+cF/qi+7HUiqmQr03POBMn0lKbnrCzYk0dHRqH/PpicreIPvp3PtZtNpQygeaKqXVpy2eodKnMj/W6h5iJd5ST/gYygrySUcgChpqdGoVOs0+dDOGw6VgbplQKX0="
     - TO=production
     - REVISION=$(git rev-parse HEAD)
     - REPO=ghettoblaster
     - USER=tubbo
-    - CI=true
-    - SAUCE_USERNAME="tomphoolery"
+    - secure: "bxZjLLXA8zSQ02pkJQgxTcA90PulNhsJKAvyAGdss1CyzoWsAQw0eHObQM9Z\n3iOtUAu3dGz/oUocKBF1EsKWdlfCp3i6r7Sxb/xJODjyHoEHg6K83Or0kKlJ\nxUh8ZLeiF5c2d+CmGyPu3oIf02aLgDbByXfettBFbwRdDMPlmjQ="
+    - secure: "e27IEl5TEfmWPuMPrJkfIQmcfQJACGgahv43dStyxIXOTsTfvWMVlH08FUkY\nWM2cm24qaCcWLtkWXAeY/wqjJWDtN0SqRjmIHp6mewUMER0yfMpK8G5qoGaW\nvCB+uEs0ConaTsLqMTK2jpByUjkfvij5z52DpnNnN51GiTvdA84="
+addons:
+  sauce_connect:
+    username: tomphoolery
+    access_key:
+      - secure: "C94wu+ghUycmSw0Rb9JcYoUjkXBiLxMmj+t8s9j3LILpUZlXf0o6QfDfkbYz\nsRbcyegGD8JRQsTHPHhdXmOLqpG7rSrW9LXSnjsduhH/kbqjRp7U8T2TDDDQ\nHb7MoaOLxLko2LN87sE0TkEZ99Yjhjl7NSzgCqK1RERDMBT/baE="
 language: ruby
 rvm:
   - 2.0.0-p247
 bundler_args: --without=development
-before_script:
-  - bundle exec rake db
-  - curl 'https://gist.github.com/patcon/5206194/raw/sauce_connect_setup.sh' | bash
+before_script: bundle exec rake db
 script: bundle exec rake test
 after_success: bundle exec rake deploy RAILS_ENV=production
