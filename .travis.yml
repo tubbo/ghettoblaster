@@ -9,7 +9,7 @@ env:
     - secure: "e27IEl5TEfmWPuMPrJkfIQmcfQJACGgahv43dStyxIXOTsTfvWMVlH08FUkY\nWM2cm24qaCcWLtkWXAeY/wqjJWDtN0SqRjmIHp6mewUMER0yfMpK8G5qoGaW\nvCB+uEs0ConaTsLqMTK2jpByUjkfvij5z52DpnNnN51GiTvdA84="
 language: ruby
 rvm:
-  - 2.0.0-p247
+  - 2.0.0-p353
 bundler_args: --without=development
 before_script: bundle exec rake db
 script: bundle exec rake test
