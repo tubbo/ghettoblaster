@@ -8,9 +8,8 @@ env:
     - secure: "bxZjLLXA8zSQ02pkJQgxTcA90PulNhsJKAvyAGdss1CyzoWsAQw0eHObQM9Z\n3iOtUAu3dGz/oUocKBF1EsKWdlfCp3i6r7Sxb/xJODjyHoEHg6K83Or0kKlJ\nxUh8ZLeiF5c2d+CmGyPu3oIf02aLgDbByXfettBFbwRdDMPlmjQ="
     - secure: "e27IEl5TEfmWPuMPrJkfIQmcfQJACGgahv43dStyxIXOTsTfvWMVlH08FUkY\nWM2cm24qaCcWLtkWXAeY/wqjJWDtN0SqRjmIHp6mewUMER0yfMpK8G5qoGaW\nvCB+uEs0ConaTsLqMTK2jpByUjkfvij5z52DpnNnN51GiTvdA84="
 language: ruby
-rvm:
-  - 2.0.0
+rvm: 2.0.0
 bundler_args: --without=development
 before_script: bundle exec rake db
-script: bundle exec rake test
+script: bundle exec rake db:migrate test
 after_success: bundle exec rake deploy RAILS_ENV=production
