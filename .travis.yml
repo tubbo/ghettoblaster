@@ -13,3 +13,5 @@ bundler_args: --without=development
 before_script: bundle exec rake db
 script: bundle exec rake db:migrate test
 after_success: bundle exec rake deploy RAILS_ENV=production
+services:
+  - redis-server
