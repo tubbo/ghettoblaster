@@ -13,6 +13,7 @@ group :engines do
   gem 'strong_parameters'
   gem 'haml-rails'
   gem 'activeadmin'
+  gem 'redis-rails'
 end
 
 group :libraries do
@@ -50,6 +51,5 @@ end
 group :production do
   gem 'rails_12factor'
   gem 'rack-cache'
-  gem 'redis-rails'
   gem 'airbrake'
 end
