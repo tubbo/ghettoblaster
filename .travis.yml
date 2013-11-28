@@ -7,6 +7,7 @@ env:
     - USER=tubbo
     - secure: "bxZjLLXA8zSQ02pkJQgxTcA90PulNhsJKAvyAGdss1CyzoWsAQw0eHObQM9Z\n3iOtUAu3dGz/oUocKBF1EsKWdlfCp3i6r7Sxb/xJODjyHoEHg6K83Or0kKlJ\nxUh8ZLeiF5c2d+CmGyPu3oIf02aLgDbByXfettBFbwRdDMPlmjQ="
     - secure: "e27IEl5TEfmWPuMPrJkfIQmcfQJACGgahv43dStyxIXOTsTfvWMVlH08FUkY\nWM2cm24qaCcWLtkWXAeY/wqjJWDtN0SqRjmIHp6mewUMER0yfMpK8G5qoGaW\nvCB+uEs0ConaTsLqMTK2jpByUjkfvij5z52DpnNnN51GiTvdA84="
+    - RAILS_SECRET='05df56ddd7881a6bb89823644e6d68191ffcf6c8113877130b3c85b9b4e3ff46ef6198fa059d426b49a73d79f54bbfa7244f65aa996e3550582f92d16249dd3c'
 language: ruby
 rvm: 2.0.0
 bundler_args: --without=development
