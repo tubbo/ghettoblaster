@@ -11,6 +11,11 @@ class SubscribersController < ApplicationController
     respond_with @subscribers
   end
 
+  # GET /subscribers/1
+  def show
+    respond_with @subscriber
+  end
+
   # POST /subscribers
   def create
     @subscriber = Subscriber.subscribe create_params

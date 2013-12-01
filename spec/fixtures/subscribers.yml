@@ -1,3 +1,6 @@
 tubbo:
   name: 'Tubbo'
   email: 'test@example.com'
+joe_blow:
+  name: 'Joe Blow'
+  email: 'joe.blow@example.com'
