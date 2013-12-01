@@ -39,4 +39,14 @@ describe Blast do
     expect(subject).to_not be_published
     expect(subject).to_not be_deliverable, "#{subject.errors.full_messages}"
   end
+
+  context "when already sent" do
+    before { subject.sent_at = Time.now }
+
+    xit "can't be deleted" do
+      expect(subject.destroy).to be_a Blast
+      expect(subject).to_not be_destroyed
+      expect(subject.errors.full_messages).to include("can not be deleted if already sent")
+    end
+  end
 end

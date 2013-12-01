@@ -1,7 +1,5 @@
 class Setting < ActiveRecord::Base
-  validates_presence_of :key
-  validates_uniqueness_of :key
-  attr_accessible :key, :value
+  validates :key, presence: true, uniqueness: true
 
   # Retriever for the value of a Setting, with knowledge of its key.
   # Settings are only stored as Strings, no matter what, so if a Setting

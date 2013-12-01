@@ -2,7 +2,6 @@
 # A person with an email who signed up for the guest list at some point.
 
 class Subscriber < ActiveRecord::Base
-  attr_accessible :email, :name, :on_guest_list
   validates :name, presence: true
   validates :email, presence: true, uniqueness: true
   validate :email_can_be_sent
