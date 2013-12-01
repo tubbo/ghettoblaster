@@ -1,8 +1,8 @@
 Ghettoblaster::Application.routes.draw do
+  devise_for :users
   resources :subscribers, only: [:index, :create] do
     collection { delete :destroy }
   end
-
   get '/thanks' => 'subscribers#thanks'
 
   # Unsubscribe form

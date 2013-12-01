@@ -40,5 +40,8 @@ module Ghettoblaster
 
     # Use the fullified version of Ember by default
     config.ember.variant = :development
+
+    # Send mails to localhost by default
+    config.action_mailer.default_url_options = { :host => 'localhost:3000' }
   end
 end
