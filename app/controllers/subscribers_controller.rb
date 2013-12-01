@@ -1,40 +1,43 @@
 class SubscribersController < ApplicationController
-  respond_to :html
+  respond_to :json
+
+  before_filter :authenticate_user!, except: %w(create)
+  before_filter :find_subscriber, except: %w(index create)
 
   # GET /
   def index
-    @subscriber = Subscriber.new
+    @subscribers = Subscriber.where searchable_params
 
-    respond_with @subscriber
+    respond_with @subscribers
   end
 
   # POST /subscribers
   def create
     @subscriber = Subscriber.subscribe create_params
 
-    render 'index', alert: with_error_message unless @subscriber.save
-    render 'thanks', layout: use_layout?
+    if @subscriber.save
+      respond_with @subscriber
+    else
+      halt_with_errors
+    end
+  end
+
+  # PUT /subscribers/1
+  def update
+    if @subscriber.update_attributes updatable_params
+      respond_with @subscriber
+    else
+      halt_with_errors
+    end
   end
 
   # DELETE /subscribers/1
   def destroy
-    @subscriber = Subscriber.find_by_email params[:subscriber][:email]
-
-    case
-    when @subscriber.present? && @subscriber.destroy
-      render 'unsubscribe_thanks'
-    when @subscriber.present?
-      render 'unsubscribe', \
-        alert: "Error unsubscribing: #{@subscriber.errors.full_messages}"
+    if @subscriber.destroy
+      render 'index'
     else
-      render 'unsubscribe', \
-        alert: "Error: Email address '#{email_addr}' was not found"
+      halt_with_errors
     end
-  end
-
-  # GET /thanks
-  def thanks
-    render 'thanks'
   end
 
   # GET /unsubscribe
@@ -43,23 +46,21 @@ class SubscribersController < ApplicationController
   end
 
   private
-  def search_params
-    params.permit :name, :email
-  end
-
-  def create_params
+  def updatable_params
     params.require(:subscriber).permit :name, :email
   end
 
-  def with_error_message
-    "Error: #{subscriber_errors}"
+  def searchable_params
+    params.permit :name, :email, :created_at
   end
 
-  def subscriber_errors
-    @subscriber.errors.full_messages.join ', '
+  def halt_with_errors
+    halt alert: "Error: #{@subscriber.error_messages}"
   end
 
-  def use_layout?
-    not request.xhr?
+  def find_subscriber
+    @subscriber = Subscriber.find params[:id]
+
+    halt 404 unless @subscriber.present?
   end
 end
