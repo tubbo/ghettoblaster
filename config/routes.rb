@@ -1,9 +1,5 @@
 Ghettoblaster::Application.routes.draw do
-  ActiveAdmin.routes(self)
-
-  devise_for :users, ActiveAdmin::Devise.config
-
-  resources :subscribers, only: %w(index create) do
+  resources :subscribers, only: [:index, :create] do
     collection { delete :destroy }
   end
 

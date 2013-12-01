@@ -12,8 +12,8 @@ group :engines do
   gem 'inherited_resources', '~> 1.4'
   gem 'strong_parameters'
   gem 'haml-rails'
-  gem 'activeadmin'
   gem 'redis-rails'
+  gem 'devise'
 end
 
 group :libraries do
