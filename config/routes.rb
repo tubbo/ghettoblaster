@@ -1,13 +1,9 @@
 Ghettoblaster::Application.routes.draw do
   devise_for :users
-  resources :subscribers, only: [:index, :create] do
-    collection { delete :destroy }
-  end
-  get '/thanks' => 'subscribers#thanks'
+  resources :subscribers
+  resources :blasts
+  resources :users, only: %w(index show)
 
-  # Unsubscribe form
-  get '/unsubscribe' => 'subscribers#unsubscribe'
-  get '/unsubscribe/thanks' => 'subscribers#unsubscribe_thanks'
-
-  root to: 'subscribers#index'
+  root to: 'application#index'
+  get '/*path' => 'application#index'
 end
