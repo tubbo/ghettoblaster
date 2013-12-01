@@ -1,3 +1,5 @@
 require 'active_record/better_error_messages'
 
-ActiveRecord::Base.include ActiveRecord::BetterErrorMessages
+# Comma-separated errors in AR
+
+ActiveRecord::Base.send :include, ActiveRecord::BetterErrorMessages
