@@ -1,4 +1,10 @@
+
+# HTTP API for CRUDing and sending out Blast deliveries
+
 class BlastsController < ApplicationController
+  respond_to :json
+
+  before_filter :authenticate_user!, except: %w(create)
   before_filter :find_blast, except: %w(index create)
 
   def index

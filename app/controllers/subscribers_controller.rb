@@ -1,3 +1,6 @@
+
+# HTTP API for seeing how many Subscribers we have to the list
+
 class SubscribersController < ApplicationController
   respond_to :json
 
