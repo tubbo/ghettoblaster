@@ -1,0 +1,4 @@
+form
+  = input id="subscriber_name" name="subscriber[name]" placeholder="Name"
+  = input id="subscriber_email" name="subscriber[email]" placeholder="Email"
+  input type="submit" class="success button round" value="I want to come out again!"
