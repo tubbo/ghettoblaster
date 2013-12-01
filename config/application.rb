@@ -16,7 +16,7 @@ require "rails"
 end
 
 # Load gem depedencies
-Bundler.require :framework, :engines, :libraries, Rails.env
+Bundler.require :framework, :engines, :libraries, :assets, Rails.env
 
 # Configure and start the application
 module Ghettoblaster

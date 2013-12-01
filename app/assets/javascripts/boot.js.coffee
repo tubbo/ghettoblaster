@@ -1,0 +1,1 @@
+@Ghettoblaster = Ember.Application.create()

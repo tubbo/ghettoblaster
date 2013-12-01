@@ -25,7 +25,14 @@ group :assets do
   gem 'sass-rails'
   gem 'coffee-rails'
   gem 'uglifier', '>= 1.0.3'
-  gem 'zurb-foundation', '~> 4.0'
+  gem 'foundation-rails'
+  gem 'ember-rails', \
+    github: 'emberjs/ember-rails',
+    branch: 'master'
+  gem 'ember_script-rails', \
+    github: 'ghempton/ember-script-rails',
+    branch: 'master'
+  gem 'emblem-rails'
 end
 
 group :development do

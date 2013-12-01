@@ -62,6 +62,9 @@ Ghettoblaster::Application.configure do
   # Precompile assets additional to application.js & application.css
   #config.assets.precompile += %w( search.js )
 
+  # Use minified Ember in production
+  config.ember.variant = :production
+
   # Ignore bad email addresses and do not raise email delivery errors.
   #config.action_mailer.raise_delivery_errors = false
 
@@ -90,3 +93,4 @@ Ghettoblaster::Application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 end
+

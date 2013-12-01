@@ -1,3 +1,27 @@
+GIT
+  remote: git://github.com/emberjs/ember-rails.git
+  revision: ed5666d3ee30d4c70f3b53effbe317144c3c0200
+  branch: master
+  specs:
+    ember-rails (0.14.1)
+      active_model_serializers
+      barber (>= 0.4.1)
+      ember-data-source
+      ember-source
+      execjs (>= 1.2)
+      handlebars-source
+      jquery-rails (>= 1.0.17)
+      railties (>= 3.1)
+
+GIT
+  remote: git://github.com/ghempton/ember-script-rails.git
+  revision: 3de2aedfec18ce745266f12f3cf42827aa3da3bd
+  branch: master
+  specs:
+    ember_script-rails (0.0.3)
+      ember_script (>= 0.0.4)
+      rails
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -10,6 +34,8 @@ GEM
       erubis (~> 2.7.0)
       rack (~> 1.5.2)
       rack-test (~> 0.6.2)
+    active_model_serializers (0.8.1)
+      activemodel (>= 3.0)
     activemodel (4.0.1)
       activesupport (= 4.0.1)
       builder (~> 3.1.0)
@@ -31,6 +57,13 @@ GEM
       json
     arel (4.0.1)
     atomic (1.1.14)
+    barber (0.4.2)
+      ember-source
+      execjs
+      handlebars-source
+    barber-emblem (0.1.1)
+      barber (>= 0.4.1)
+      emblem-source
     bcrypt-ruby (3.1.2)
     builder (3.1.4)
     byebug (2.3.1)
@@ -61,6 +94,19 @@ GEM
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
     dotenv (0.9.0)
+    ember-data-source (0.14)
+      ember-source
+    ember-source (1.2.0.1)
+      handlebars-source (~> 1.1.2)
+    ember_script (0.0.5)
+      ember_script-source (>= 0.0.2)
+      execjs
+      tilt
+    ember_script-source (0.0.8)
+    emblem-rails (0.2.1)
+      barber-emblem (~> 0.1.1)
+      ember-rails (>= 0.14.0)
+    emblem-source (0.3.4)
     erubis (2.7.0)
     eventmachine (1.0.3)
     excon (0.25.3)
@@ -71,6 +117,10 @@ GEM
     foreman (0.63.0)
       dotenv (>= 0.7)
       thor (>= 0.13.6)
+    foundation-rails (5.0.2.0)
+      railties (>= 3.1.0)
+      sass (>= 3.2.0)
+    handlebars-source (1.1.2)
     heroku (3.1.0)
       heroku-api (~> 0.3.7)
       launchy (>= 0.3.2)
@@ -240,8 +290,6 @@ GEM
       heroku
       rails (>= 3.0.0)
       rake
-    zurb-foundation (4.3.2)
-      sass (>= 3.2.0)
 
 PLATFORMS
   ruby
@@ -251,7 +299,11 @@ DEPENDENCIES
   capybara (~> 2.0)
   coffee-rails
   devise (~> 3.2)
+  ember-rails!
+  ember_script-rails!
+  emblem-rails
   foreman
+  foundation-rails
   jquery-rails (~> 2.2)
   meta_request
   pg
@@ -272,4 +324,3 @@ DEPENDENCIES
   sass-rails
   uglifier (>= 1.0.3)
   zen_garden
-  zurb-foundation (~> 4.0)
