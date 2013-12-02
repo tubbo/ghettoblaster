@@ -26,26 +26,20 @@ class SubscribersController < ApplicationController
     if @subscriber.save
       respond_with @subscriber
     else
-      halt_with_errors
+      halt!
     end
   end
 
   # PUT /subscribers/1
   def update
-    if @subscriber.update_attributes updatable_params
-      respond_with @subscriber
-    else
-      halt_with_errors
-    end
+    halt! unless @subscriber.update_attributes editable_params
+    respond_with @subscriber
   end
 
   # DELETE /subscribers/1
   def destroy
-    if @subscriber.destroy
-      render 'index'
-    else
-      halt_with_errors
-    end
+    halt! unless @subscriber.destroy
+    halt notice: 'Subscriber has been deleted'
   end
 
   # GET /unsubscribe
@@ -54,7 +48,7 @@ class SubscribersController < ApplicationController
   end
 
   private
-  def updatable_params
+  def editable_params
     params.require(:subscriber).permit :name, :email
   end
 
@@ -62,8 +56,8 @@ class SubscribersController < ApplicationController
     params.permit :name, :email, :created_at
   end
 
-  def halt_with_errors
-    halt alert: "Error: #{@subscriber.error_messages}"
+  def halt!
+    halt alert: "Error: #{@subscriber.error_messages}" and return
   end
 
   def find_subscriber
