@@ -43,7 +43,8 @@ group :test do
   gem 'rspec-rails'
   gem 'capybara', '~> 2.0', :require => false
   gem 'resque_spec'
-  gem 'poltergeist'
+  gem 'poltergeist', github: 'jonleighton/poltergeist'
+  gem 'faye-websocket', '0.4.7'
 end
 
 group :development, :test do
