@@ -6,6 +6,7 @@ ActiveAdmin.register Blast do
 
   form do |f|
     f.inputs :subject, :body
+    f.actions
   end
 
   show do |email|
