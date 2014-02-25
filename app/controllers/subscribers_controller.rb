@@ -1,5 +1,6 @@
 class SubscribersController < ApplicationController
   respond_to :html
+  before_action :find_or_create_subsriber, :only => %w(create)
 
   # GET /
   def index
@@ -10,7 +11,7 @@ class SubscribersController < ApplicationController
 
   # POST /subscribers
   def create
-    @subscriber = Subscriber.new creatable_params
+    @subscriber = Subscriber.find_or_create_by_email_and_name create_params
 
     if @subscriber.save
       render 'thanks', layout: use_layout?
@@ -25,7 +26,11 @@ class SubscribersController < ApplicationController
   end
 
   private
-  def creatable_params
+  def search_params
+    params.permit :name, :email
+  end
+
+  def create_params
     params.require(:subscriber).permit :name, :email
   end
 
