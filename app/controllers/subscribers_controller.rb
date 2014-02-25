@@ -20,6 +20,11 @@ class SubscribersController < ApplicationController
     end
   end
 
+  def refresh
+    Subscriber.refresh!
+    render text: "All subscribers have been refreshed.", status: 200
+  end
+
   # GET /thanks
   def thanks
     render 'thanks'
