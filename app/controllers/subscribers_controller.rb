@@ -20,9 +20,20 @@ class SubscribersController < ApplicationController
     end
   end
 
-  def refresh
-    Subscriber.refresh!
-    render text: "All subscribers have been refreshed.", status: 200
+  # Unsubscribes a subscriber...this is a little weird because the user
+  # doesn't necessarily know their own ID. So this is actually a
+  # 'collection' action which takes in params[:email] and searches for a
+  # user by that unique constraint.
+  #
+  # DELETE /subscribers/?email=lester@example.com
+  def destroy
+    @subscriber = Subscriber.where(email: params[:email]).first
+
+    if @subscriber.present? && @subscriber.destroy
+      render 'unsubscribed'
+    else
+      render 'index', alert: "Error unsubscribing: #{@subscriber.errors.full_messages}"
+    end
   end
 
   # GET /thanks
