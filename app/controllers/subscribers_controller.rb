@@ -1,6 +1,5 @@
 class SubscribersController < ApplicationController
   respond_to :html
-  before_filter :find_or_create_subscriber, :only => %w(create)
 
   # GET /
   def index
