@@ -3,9 +3,7 @@ Ghettoblaster::Application.routes.draw do
 
   devise_for :users, ActiveAdmin::Devise.config
 
-  resources :subscribers, only: %w(index create) do
-    collection { delete :destroy }
-  end
+  resources :subscribers, only: %w(index create destroy)
 
   get '/thanks' => 'subscribers#thanks'
   root to: 'subscribers#index'

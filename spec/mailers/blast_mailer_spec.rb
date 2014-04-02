@@ -11,9 +11,10 @@ describe BlastMailer do
   let(:blast) { blasts :wonderland_announcement }
   let(:markdown_body) { markdown(blast.body).gsub(/\n/, '') }
 
+
   subject { BlastMailer.announcement(blast) }
 
-  it "sends to the list of subscribers" do
+  it "sends to the list of subscribers as 'Bcc:'" do
     expect(subject.bcc).to include(subscriber.email)
   end
 
@@ -31,5 +32,10 @@ describe BlastMailer do
 
   it "parses Markdown to form the body" do
     expect(subject.encoded).to match(markdown_body)
+  end
+
+  it "appends a signature with unsubscribe instructions" do
+    expect(subject.encoded).to match(/unsubscribe/)
+    #expect(subject.encoded).to match(subject.send(:unsubscribe_link))
   end
 end

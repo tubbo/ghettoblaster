@@ -19,19 +19,17 @@ class SubscribersController < ApplicationController
     end
   end
 
-  # Unsubscribes a subscriber...this is a little weird because the user
-  # doesn't necessarily know their own ID. So this is actually a
-  # 'collection' action which takes in params[:email] and searches for a
-  # user by that unique constraint.
-  #
-  # DELETE /subscribers/?email=lester@example.com
+  # DELETE /subscribers/1
   def destroy
-    @subscriber = Subscriber.where(email: params[:email]).first
+    @subscriber = Subscriber.find params[:id]
 
-    if @subscriber.present? && @subscriber.destroy
+    case
+    when @subscriber.present? && @subscriber.destroy
       render 'unsubscribed'
-    else
+    when @subscriber.present?
       render 'index', alert: "Error unsubscribing: #{@subscriber.errors.full_messages}"
+    else
+      render 'index', alert: "Error: Could not find subscriber."
     end
   end
 

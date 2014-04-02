@@ -36,5 +36,9 @@ module Ghettoblaster
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    # Configure the domain name with an env var, so we can use it in
+    # emails.
+    config.action_mailer.default_url_options = { host: ENV['DOMAIN_NAME'] }
   end
 end

@@ -21,8 +21,8 @@ class BlastMailer < ActionMailer::Base
       from: default_from_address,
       to: default_to_address,
       bcc: all_subscribers,
-      subject: blast.subject,
-      body: body_in_markdown
+      subject: @blast.subject,
+      body: contents
     }
   end
 
@@ -39,7 +39,28 @@ class BlastMailer < ActionMailer::Base
     Subscriber.pluck [:email]
   end
 
-  def body_in_markdown
+  def contents
+    email_body + signature
+  end
+
+  def email_body
     markdown @blast.body
+  end
+
+  def signature
+    markdown %{
+    ------
+
+    [Click here](#{unsubscribe_link}) to unsubscribe from this
+    mailing.
+    }
+  end
+
+  def unsubscribe_link
+    "http://#{this_domain}/subscribers/#{@blast.id}/unsubscribe"
+  end
+
+  def this_domain
+    Rails.application.config.action_mailer.default_url_options[:host]
   end
 end
