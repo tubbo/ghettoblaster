@@ -11,10 +11,8 @@ class BlastMailer < ActionMailer::Base
   # The email announcement blaster.
   def announcement for_blast
     @blast = for_blast
-    mail(with_parameters) do |format|
-      format.html { render html: html_contents }
-      format.text { render text: text_contents }
-    end
+    mail with_parameters
+    logger.info "Sent Blast '#{for_blast.id}' out to all subscribers"
   end
 
   # Parameters we're sending in the email.
@@ -23,7 +21,9 @@ class BlastMailer < ActionMailer::Base
       from: default_from_address,
       to: default_to_address,
       bcc: all_subscribers,
-      subject: @blast.subject
+      subject: @blast.subject,
+      content_type: 'text/html',
+      body: html_contents
     }
   end
 
@@ -38,5 +38,26 @@ class BlastMailer < ActionMailer::Base
 
   def all_subscribers
     Subscriber.pluck [:email]
+  end
+
+  def html_contents
+    (html_email_body + html_signature).html_safe
+  end
+
+  def html_email_body
+    markdown @blast.body
+  end
+
+  def html_signature
+    markdown raw_signature
+  end
+
+  def raw_signature
+    %{
+    ------
+
+    [Click here](#{unsubscribe_url}) to unsubscribe from this
+    mailing.
+    }
   end
 end

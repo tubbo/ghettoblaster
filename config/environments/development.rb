@@ -16,6 +16,13 @@ Ghettoblaster::Application.configure do
   # Don't care if the mailer can't send
   config.action_mailer.raise_delivery_errors = false
 
+  # Send emails with Mailcatcher locally
+  ActionMailer::Base.delivery_method = :smtp
+  ActionMailer::Base.smtp_settings = {
+    address: '127.0.0.1',
+    port: '1025'
+  }
+
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
 

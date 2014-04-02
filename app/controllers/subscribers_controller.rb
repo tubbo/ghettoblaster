@@ -21,8 +21,7 @@ class SubscribersController < ApplicationController
 
   # DELETE /subscribers/1
   def destroy
-    email_addr = params[:subscriber].try :email
-    @subscriber = Subscriber.where(email: email_addr).first
+    @subscriber = Subscriber.find_by_email params[:subscriber][:email]
 
     case
     when @subscriber.present? && @subscriber.destroy
@@ -42,7 +41,9 @@ class SubscribersController < ApplicationController
   end
 
   # GET /unsubscribe
-  def unsubscribe; end
+  def unsubscribe
+    @subscriber = Subscriber.new
+  end
 
   private
   def search_params
