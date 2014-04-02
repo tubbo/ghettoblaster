@@ -6,5 +6,10 @@ Ghettoblaster::Application.routes.draw do
   resources :subscribers, only: %w(index create destroy)
 
   get '/thanks' => 'subscribers#thanks'
+
+  # Unsubscribe form
+  get '/unsubscribe' => 'subscribers#unsubscribe'
+  get '/unsubscribe/thanks' => 'subscribers#unsubscribe_thanks'
+
   root to: 'subscribers#index'
 end
