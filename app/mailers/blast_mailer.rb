@@ -22,7 +22,7 @@ class BlastMailer < ActionMailer::Base
       to: default_to_address,
       bcc: all_subscribers,
       subject: @blast.subject,
-      body: contents
+      body: contents.html_safe
     }
   end
 
@@ -57,7 +57,7 @@ class BlastMailer < ActionMailer::Base
   end
 
   def unsubscribe_link
-    "http://#{this_domain}/subscribers/#{@blast.id}/unsubscribe"
+    "http://#{this_domain}/unsubscribe"
   end
 
   def this_domain
