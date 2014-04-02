@@ -1,0 +1,6 @@
+.row
+  %h1 Unsubscribe
+.row
+  = form_for subscribers_destroy_path do |f|
+    = f.text_field :email, placeholder: 'Enter your email address'
+    = f.submit 'Unsubscribe', class: 'button primary'

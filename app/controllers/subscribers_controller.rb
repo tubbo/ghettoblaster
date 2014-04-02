@@ -21,15 +21,18 @@ class SubscribersController < ApplicationController
 
   # DELETE /subscribers/1
   def destroy
-    @subscriber = Subscriber.find params[:id]
+    email_addr = params[:subscriber].try :email
+    @subscriber = Subscriber.where(email: email_addr).first
 
     case
     when @subscriber.present? && @subscriber.destroy
-      render 'unsubscribed'
+      render 'unsubscribe_thanks'
     when @subscriber.present?
-      render 'index', alert: "Error unsubscribing: #{@subscriber.errors.full_messages}"
+      render 'unsubscribe', \
+        alert: "Error unsubscribing: #{@subscriber.errors.full_messages}"
     else
-      render 'index', alert: "Error: Could not find subscriber."
+      render 'unsubscribe', \
+        alert: "Error: Email address '#{email_addr}' was not found"
     end
   end
 
@@ -37,6 +40,9 @@ class SubscribersController < ApplicationController
   def thanks
     render 'thanks'
   end
+
+  # GET /unsubscribe
+  def unsubscribe; end
 
   private
   def search_params
