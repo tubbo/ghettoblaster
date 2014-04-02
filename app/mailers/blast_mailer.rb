@@ -12,7 +12,6 @@ class BlastMailer < ActionMailer::Base
   # The email announcement blaster.
   def announcement for_blast
     @blast = for_blast
-
     mail with_parameters
   end
 
