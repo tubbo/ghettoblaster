@@ -9,7 +9,7 @@ class Blast < ActiveRecord::Base
   def deliver
     return false unless deliverable?
     update_attributes sent_at: Time.now
-    BlastMailer.announcement(self).deliver
+    BlastMailer.announcement(self).deliver!
   end
 
   def published?
