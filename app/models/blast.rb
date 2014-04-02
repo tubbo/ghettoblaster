@@ -2,6 +2,8 @@ class Blast < ActiveRecord::Base
   validates :subject, presence: true
   validates :body, presence: true
 
+  after_create :deliver, :if => :published?
+
   def sent?
     self.sent_at.present?
   end

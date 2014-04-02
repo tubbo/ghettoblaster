@@ -5,7 +5,10 @@ ActiveAdmin.register Blast do
   end
 
   form do |f|
-    f.inputs :subject, :body
+    f.input :subject
+    f.input :body
+    f.input :is_published, label: "Publish? (note: checking this means that you want the mail to be sent right now)"
+
     f.actions
   end
 
