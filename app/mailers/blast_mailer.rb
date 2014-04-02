@@ -50,6 +50,7 @@ class BlastMailer < ActionMailer::Base
 
   def signature
     %{
+
     [Click here](#{unsubscribe_url}) to unsubscribe from this
     mailing.
     }
