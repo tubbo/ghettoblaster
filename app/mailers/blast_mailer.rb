@@ -41,21 +41,15 @@ class BlastMailer < ActionMailer::Base
   end
 
   def html_contents
-    (html_email_body + html_signature).html_safe
+    markdown(raw_contents).html_safe
   end
 
-  def html_email_body
-    markdown @blast.body
+  def raw_contents
+    @blast.body + signature
   end
 
-  def html_signature
-    markdown raw_signature
-  end
-
-  def raw_signature
+  def signature
     %{
-    ------
-
     [Click here](#{unsubscribe_url}) to unsubscribe from this
     mailing.
     }
