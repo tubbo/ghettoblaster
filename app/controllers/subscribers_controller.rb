@@ -10,13 +10,10 @@ class SubscribersController < ApplicationController
 
   # POST /subscribers
   def create
-    @subscriber = Subscriber.find_or_create_by_email_and_name create_params
+    @subscriber = Subscriber.subscribe create_params
 
-    if @subscriber.save
-      render 'thanks', layout: use_layout?
-    else
-      render 'index', alert: with_error_message
-    end
+    render 'index', alert: with_error_message unless @subscriber.save
+    render 'thanks', layout: use_layout?
   end
 
   # DELETE /subscribers/1

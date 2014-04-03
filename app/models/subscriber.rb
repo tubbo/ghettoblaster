@@ -12,8 +12,8 @@ class Subscriber < ActiveRecord::Base
 
   # Helper method for getting the right Subscriber from a POST to
   # /subscribers.
-  def self.find_or_create_by_email_and_name params={}
-    existing_subscribers = where params
+  def self.subscribe params={}
+    existing_subscribers = where email: params[:email]
 
     if existing_subscribers.any?
       subscriber = existing_subscribers.first
