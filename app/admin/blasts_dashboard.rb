@@ -5,10 +5,12 @@ ActiveAdmin.register Blast do
   end
 
   form do |f|
-    f.input :subject
-    f.input :body
-    f.input :is_published, label: "Publish? (note: checking this means that you want the mail to be sent right now)"
-
+    f.inputs :subject, :body
+    f.inputs do
+      f.input :is_published, \
+        label: 'Publish?',
+        hint: "Select this if you wish to send out the Blast to all subscribers right now."
+    end
     f.actions
   end
 
