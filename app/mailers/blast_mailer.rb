@@ -45,12 +45,11 @@ class BlastMailer < ActionMailer::Base
   end
 
   def raw_contents
-    @blast.body + signature
+    @blast.body + "\n\n" + signature
   end
 
   def signature
     %{
-
     [Click here](#{unsubscribe_url}) to unsubscribe from this
     mailing.
     }
