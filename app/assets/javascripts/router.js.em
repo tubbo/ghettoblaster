@@ -7,4 +7,4 @@ Ghettoblaster.Router.map ->
     @resource 'users', path: 'users'
   @route 'thanks', path: '/thanks'
   @route 'unsubscribe', path: '/unsubscribe'
-  @route 'form', path: ''
+  @route 'index', path: ''

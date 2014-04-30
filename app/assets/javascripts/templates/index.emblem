@@ -1,0 +1,8 @@
+#subscribe.row
+  #image.large-6.columns
+    = link-to 'flyer' title=party_name id=flyer
+      img src=flyer_image_path alt=party_name
+  #canvas.large-6.columns
+    h1= party_name
+    h2.right= headline_text
+    Ghettoblaster.SubscribeFormView
