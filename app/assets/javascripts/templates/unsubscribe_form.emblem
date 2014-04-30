@@ -1,0 +1,2 @@
+= input name=subscriber[email] placeholder="Enter your email address"
+= input type=submit value="Unsubscribe" class="button primary"

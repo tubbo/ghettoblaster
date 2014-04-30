@@ -6,4 +6,5 @@ Ghettoblaster.Router.map ->
     @resource 'blasts', path: 'blasts'
     @resource 'users', path: 'users'
   @route 'thanks', path: '/thanks'
+  @route 'unsubscribe', path: '/unsubscribe'
   @route 'form', path: ''

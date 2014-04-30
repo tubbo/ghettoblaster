@@ -4,7 +4,7 @@
 class SubscribersController < ApplicationController
   respond_to :json
 
-  before_filter :authenticate_user!, except: %w(create)
+  before_filter :authenticate_user!, except: %w(create destroy)
   before_filter :find_subscriber, except: %w(index create)
 
   # GET /
@@ -40,11 +40,6 @@ class SubscribersController < ApplicationController
   def destroy
     halt! unless @subscriber.destroy
     halt notice: 'Subscriber has been deleted'
-  end
-
-  # GET /unsubscribe
-  def unsubscribe
-    @subscriber = Subscriber.new
   end
 
   private
