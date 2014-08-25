@@ -4,7 +4,9 @@ require 'resque_mailer'
 # Enqueues mailings with Resque.
 
 class BlastMailer < ActionMailer::Base
-  include MarkdownHelper, BlastContentHelper, Resque::Mailer
+  include MarkdownHelper
+  include BlastContentHelper
+  include Resque::Mailer
 
   attr_reader :blast
 
@@ -12,7 +14,8 @@ class BlastMailer < ActionMailer::Base
   def announcement for_blast
     @blast = for_blast
     mail with_parameters
-    logger.info "Sent Blast '#{for_blast.id}' out to all subscribers"
+    Subscriber.refresh!
+    logger.info "Sent Blast '#{for_blast.id}' out to all subscribers, and re-set the list."
   end
 
   # Parameters we're sending in the email.
@@ -37,18 +40,14 @@ class BlastMailer < ActionMailer::Base
   end
 
   def all_subscribers
-    Subscriber.pluck [:email]
+    Subscriber.going.pluck [:email]
   end
 
   def html_contents
-    markdown(raw_contents).html_safe
-  end
-
-  def raw_contents
-    @blast.body + "\n\n" + signature
+    (@blast.raw_contents + signature).html_safe
   end
 
   def signature
-    "[Click here](#{unsubscribe_url}) to unsubscribe from this mailing."
+    markdown "[Click here](#{unsubscribe_url}) to unsubscribe from this mailing."
   end
 end

@@ -18,6 +18,6 @@ ActiveAdmin.register Blast do
     h3 email.subject
     h4 "Sent on #{email.sent_at}"
 
-    para email.body
+    para email.contents
   end
 end

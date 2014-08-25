@@ -1,8 +1,15 @@
 class Blast < ActiveRecord::Base
+  include MarkdownHelper
+
   validates :subject, presence: true
   validates :body, presence: true
 
   after_save :deliver, :if => :published_and_not_sent?
+
+  # Markdown-parsed contents of the body
+  def contents
+    @contents ||= markdown(body)
+  end
 
   def published_and_not_sent?
     published? && (not sent?)
