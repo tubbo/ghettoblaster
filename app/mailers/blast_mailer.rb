@@ -44,7 +44,11 @@ class BlastMailer < ActionMailer::Base
   end
 
   def html_contents
-    (@blast.raw_contents + signature).html_safe
+    contents_and_signature.html_safe
+  end
+
+  def contents_and_signature
+    @blast.contents + signature
   end
 
   def signature
