@@ -25,7 +25,7 @@ class Subscriber < ActiveRecord::Base
   end
 
   # Take all Subscribers that are going to the current party off the guest list.
-  def refresh!
+  def self.refresh!
     going.update_attributes on_guest_list: false
   end
 
