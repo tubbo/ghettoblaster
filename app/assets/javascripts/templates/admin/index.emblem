@@ -1,19 +1,4 @@
-nav.top-bar data-topbar="data-topbar"
-  ul.title-area
-    li.name
-      h1
-        a href="/" ghettoblaster
-  section.top-bar-section
-    ul.left
-      li
-        linkTo 'subscribers' | Subscribers
-      li
-        linkTo 'blasts' | Blasts
-      li
-        linkTo 'users' | Users
-  /section.top-bar-section
-    ul.right
-      li
-        linkTo 'sessions/leave' | Log Out
+.row
+  h1 Welcome to the admin panel!
 
-outlet
+  p Use the links above to edit user access, send blasts, and start campaigns.
